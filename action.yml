@@ -1,0 +1,59 @@
+---
+name: 'Commit Lint Action'
+author: 'Richard Steinbrueck'
+description: 'Check commits according to an regex'
+inputs:
+  workingdir:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: '.'
+  basebranch:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: 'master'
+  author_name_regex:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+  author_name_message:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+  author_email_regex:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+  author_email_message:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+  committer_name_regex:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+  committer_name_message:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+  committer_email_regex:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+  committer_email_message:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+  commit_message_regex:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+  commit_message_message:
+    description: 'Path to files within the repo (and nested directories)'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'terminal'
+  color: 'red'

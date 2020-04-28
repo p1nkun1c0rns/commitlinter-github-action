@@ -1,0 +1,44 @@
+name: "Test"
+on:
+  push:
+    branches-ignore:
+      - 'dependabot/*'
+  schedule:
+    - cron: '22 22 * * 5'
+env:
+  IMAGE_TAG: ${{ github.sha }}
+  IMAGE: ${{ github.repository }}
+
+jobs:
+  lint:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Markdown Lint
+        uses: actionshub/markdownlint@v1.0.0
+
+      - name: rubocop
+        uses: reviewdog/action-rubocop@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review # Default is github-pr-check
+
+      - name: Dockerfile Lint
+        uses: burdzwastaken/hadolint-action@1.6.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HADOLINT_ACTION_DOCKERFILE_FOLDER: .
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install bats
+      run: sudo apt-get -y install bats > /dev/null
+
+    - name: Run CI script
+      run: ./tests/run.bats
+
+    - name: Run action
+      uses: ./
