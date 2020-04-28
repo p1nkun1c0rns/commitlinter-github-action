@@ -1,0 +1,1 @@
+# commitlinter-github-action
