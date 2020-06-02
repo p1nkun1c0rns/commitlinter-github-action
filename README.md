@@ -65,7 +65,9 @@ Currently there are no outputs yet. If you need something, just open an issue.
 
 ## TODO
 
+- [ ] Remove the basebranch thing
+- [ ] Add dependabot action update thing
 - [ ] Mailaddress validation?
 - [ ] ignore dependabot?
-- [ ] Jira ticket validation?
 - [ ] Push image to hub for more performance?
+  - [ ] How to make image tags
