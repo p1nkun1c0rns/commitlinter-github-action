@@ -4,7 +4,7 @@
 
 Out in the world, there are already a few linter and one or two commitlinter GitHub actions... BUT: either they are based on [javascript and buggy](https://github.com/conventional-changelog/commitlint/issues/613) or have not been maintained for some time.
 
-## useage
+## usage
 
 ```yaml
 name: "CI"
